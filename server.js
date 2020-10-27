@@ -2,29 +2,29 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const logger = require("morgan");
-const app = express();
 
 // Port
 const PORT = process.env.PORT || 3500;
 
 // Apps and Usage
-
-app.use(logger("dev"));
+const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static("public"));
 
+app.use(logger("dev"));
+
 // Mongoose connection
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
+  userFindAndModify: false,
 });
 
 // Routes
-app.use(require("./routes/api.js"));
-//app.use(require("./routes/view.js"));
+app.use(require("./routes/apiRoutes.js"));
+//app.use(require("./routes/htmlRoutes.js"));
 
 // Listening on Port...
 app.listen(PORT, () => {

@@ -5,9 +5,9 @@ const path = require ("path");
 module.exports = function(app) {
 
     // GET index HTML page
-    app.get("/", (req, res) => {
-        res.sendFile(path.join(__dirname + "./public/index.html"));
-    });
+    // app.get("/", (req, res) => {
+    //     res.sendFile(path.join(__dirname + "./public/index.html"));
+    // });
 
     // GET stats HTML page
     app.get("/stats", (req, res) => {
@@ -49,26 +49,22 @@ module.exports = function(app) {
           });
       });
 
-      app.post("/api/workouts", ({ body }, res) => {
-        db.Workout.create(body)
-          .then(({ _id }) => db.Workout.findOneAndUpdate({}, { $push: { notes: _id } }, { new: true }))
-          .then(data => {
+      app.post("/api/workouts", (req, res) => {
+          db.Workout.create({}).then(data => {
+            console.log("data", data);
             res.json(data);
           })
-          .catch(err => {
-            res.json(err);
-          });
-      });
+            .catch(err => {
+              res.json(err);
+            });
+        })
 
       app.put("/api/workouts/:id",(req, res) => {
-
         Workout.findOneAndUpdate(
           { _id: req.params.id }, 
           { $push: { exercises: req.body  } },
-      
         )
-      
-      .then(data=>{
+        .then(data=>{
           console.log("data", data)
           res.json(data)
         })
