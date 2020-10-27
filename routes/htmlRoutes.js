@@ -1,9 +1,10 @@
-app.get("/", (req, res) => {
-  db.workouts.find({})
-    .then(dbBook => {
-      res.json(dbBook);
-    })
-    .catch(err => {
-      res.json(err);
-    });
+
+const path = require("path");
+module.exports= function(app){
+app.get("/exercise", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/exercise.html"));
 });
+app.get("/stats", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/stats.html"));
+});
+}
