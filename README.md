@@ -4,7 +4,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/BwayCarl/Workout-Tracker)](https://github.com/BwayCarl/Workout-Tracker/issues)
 [![GitHub forks](https://img.shields.io/github/forks/BwayCarl/Workout-Tracker)](https://github.com/BwayCarl/Workout-Tracker/network)
 [![GitHub stars](https://img.shields.io/github/stars/BwayCarl/Workout-Tracker)](https://github.com/BwayCarl/Workout-Tracker/stargazers)
-## Homework Assignment - Unit 14
+## Homework Assignment - Unit 17
 #### Rutgers Coding Bootcamp / RUT-JER-FSF-PT-06-2020-U-C
 
 ## *Table of Contents*
